@@ -1,0 +1,126 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Some Time Later";
+  src: url("/fonts/Some-Time-Later.woff2") format("woff2"),
+       url("/fonts/Some-Time-Later.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --color-canvas: #0b0705;
+  --color-wood-dark: #120a06;
+  --color-wood-surface: #1b110b;
+  --color-crimson: #8b261e;
+  --color-crimson-light: #ab3328;
+  --color-amber: #c87a32;
+  --color-gold: #ecd8a5;
+  --color-gold-muted: #bfa67c;
+  --color-sand-muted: #9c8e7c;
+  --font-display: "Some Time Later", serif, system-ui;
+  --font-secondary: "Space Grotesk", sans-serif;
+  --font-body: "Plus Jakarta Sans", sans-serif;
+}
+
+body {
+  background-color: var(--color-canvas);
+  color: var(--color-gold);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  letter-spacing: -0.01em;
+  line-height: 1.6;
+}
+
+.font-sometime {
+  font-family: "Some Time Later", Georgia, serif;
+}
+
+.font-editorial {
+  font-family: "Space Grotesk", sans-serif;
+}
+
+.font-sans-clean {
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+/* Subtle organic film grain */
+.film-grain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.035;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Warm ambient lamp / samovar lighting derived from the artwork */
+.ambient-warmth {
+  position: fixed;
+  width: 80vmax;
+  height: 80vmax;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(200, 122, 50, 0.12) 0%, rgba(139, 38, 30, 0.05) 45%, rgba(11, 7, 5, 0) 75%);
+  top: -20%;
+  left: -15%;
+  pointer-events: none;
+  z-index: 1;
+  filter: blur(140px);
+  animation: ambientDrift 24s infinite alternate ease-in-out;
+}
+
+@keyframes ambientDrift {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(6vw, 8vh) scale(1.1); }
+  100% { transform: translate(-3vw, 4vh) scale(0.95); }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0b0705;
+}
+::-webkit-scrollbar-thumb {
+  background: #2d1c13;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #c87a32;
+}
+
+/* Mandatory site-credit styling per section 17 */
+.site-credit {
+  margin: 0;
+  padding: 18px 16px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.6;
+  letter-spacing: 0.04em;
+  opacity: 0.75;
+  color: var(--color-sand-muted);
+}
+
+.site-credit a {
+  color: var(--color-gold);
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 3px;
+  transition: opacity 180ms ease, text-decoration-color 180ms ease;
+  font-weight: 500;
+}
+
+.site-credit a:hover {
+  opacity: 1;
+  text-decoration-color: currentColor;
+}
+
+.site-credit a:focus-visible {
+  outline: 2px solid var(--color-amber);
+  outline-offset: 4px;
+}

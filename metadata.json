@@ -1,0 +1,8 @@
+{
+  "name": "GOLDEN ERA — Ahmer & Rishab Raino",
+  "description": "Official EP website for GOLDEN ERA by Ahmer and Rishab Raino featuring Arif Mir. Stream now, explore tracks, watch embedded videos, and discover the visual world.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
